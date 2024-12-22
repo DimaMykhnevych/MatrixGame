@@ -1,31 +1,4 @@
 <div class="pageContiner">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-lg-4 text-center">
-        <div>
-          Rows
-          <button color="primary" mat-icon-button (click)="deleteRow()">
-            <mat-icon>delete</mat-icon>
-          </button>
-          <button color="primary" mat-icon-button (click)="addRow()">
-            <mat-icon>add</mat-icon>
-          </button>
-        </div>
-      </div>
-      <div class="col-lg-4 text-center">
-        <div>
-          Columns
-          <button color="primary" mat-icon-button (click)="deleteColumn()">
-            <mat-icon>delete</mat-icon>
-          </button>
-          <button color="primary" mat-icon-button (click)="addColumn()">
-            <mat-icon>add</mat-icon>
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <br />
   <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     <ng-container matColumnDef=" ">
       <mat-header-cell *matHeaderCellDef> </mat-header-cell>

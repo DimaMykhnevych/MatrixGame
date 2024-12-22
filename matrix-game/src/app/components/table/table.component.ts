@@ -22,44 +22,6 @@ export class TableComponent {
       row: -1,
     },
   };
-  public deleteColumn(): void {
-    if (this.displayedColumns.length === 1) {
-      console.log('Cannot delete all headers.');
-      return;
-    }
-    this.displayedColumns.splice(-1, 1);
-    const tempDataSource = [...this.dataSource.data];
-    for (let i = 0; i < tempDataSource.length - 1; i++) {
-      tempDataSource[i].splice(-1, 1);
-    }
-    this.dataSource.data = tempDataSource;
-  }
-  public addColumn(): void {
-    this.displayedColumns.push(
-      (+this.displayedColumns[this.displayedColumns.length - 1] + 1).toString()
-    );
-    const tempDataSource = [...this.dataSource.data];
-    for (let i = 0; i < tempDataSource.length; i++) {
-      tempDataSource[i].push(0);
-    }
-    this.dataSource.data = tempDataSource;
-  }
-  public deleteRow(): void {
-    if (this.dataSource.data.length === 1) {
-      console.log('Cannot delete all rows.');
-      return;
-    }
-    const tempDataSource = [...this.dataSource.data];
-    tempDataSource.splice(-1, 1);
-    this.dataSource.data = tempDataSource;
-  }
-  public addRow(): void {
-    const tempDataSource = [...this.dataSource.data];
-    tempDataSource[tempDataSource.length] = [].concat(
-      ...new Array(this.displayedColumns.length - 1).fill([0])
-    );
-    this.dataSource.data = tempDataSource;
-  }
   public switchToInput(rindex: number, cindex: number): void {
     this.editor.editPointer.col = cindex;
     this.editor.editPointer.row = rindex;

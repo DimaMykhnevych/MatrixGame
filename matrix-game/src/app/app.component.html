@@ -36,4 +36,23 @@
       <img class="snowman" src="assets/images/snowman.png" alt="snowman" />
     </div>
   </div>
+  <div class="row">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-6 option-chooser">
+      <h2>Обрати стратегію першого гравця</h2>
+      <mat-form-field>
+        <mat-label>Select an option</mat-label>
+        <mat-select
+          [(value)]="selectedFirstPlayerStrategy"
+          (selectionChange)="onFirstPlayerOptionChanged($event)"
+        >
+          <mat-option>None</mat-option>
+          <mat-option value="12000">12000</mat-option>
+          <mat-option value="15000">15000</mat-option>
+          <mat-option value="18000">18000</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-lg-3"></div>
+  </div>
 </div>

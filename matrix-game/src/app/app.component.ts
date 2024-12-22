@@ -10,6 +10,8 @@ export class AppComponent implements OnInit {
 
   public data: number[][] = [];
 
+  public selectedFirstPlayerStrategy: string | null = null;
+
   constructor() {}
 
   ngOnInit(): void {
@@ -18,5 +20,9 @@ export class AppComponent implements OnInit {
       [-30000, 30000, 60000],
       [-60000, 0, 72000],
     ];
+  }
+
+  public onFirstPlayerOptionChanged(event: any) {
+    console.log(event.value);
   }
 }

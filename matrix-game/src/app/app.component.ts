@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MaxMin } from './max-min';
+import { MaxMinResult } from './max-min-result';
 
 @Component({
   selector: 'app-root',
@@ -10,13 +12,15 @@ export class AppComponent implements OnInit {
 
   public data: number[][] = [];
 
-  public selectedFirstPlayerStrategy: string | null = null;
+  public selectedFirstPlayerStrategy: string = '-1';
 
   public isPlayClicked = false;
 
-  public secondPlayerStrategy: string = '(1, 1)';
+  public secondPlayerStrategy: string = '';
+  public secondPlayerStrategies: string[] = ['М\'яка','Нормальна','Сувора'];
 
-  public firstPlayerWin: string = '-10';
+  public firstPlayerWin: string = '';
+  public firstPlayerStrategies: string[] = ['12000', '15000', '18000'];
 
   constructor() {}
 
@@ -29,15 +33,27 @@ export class AppComponent implements OnInit {
   }
 
   public onFirstPlayerOptionChanged(event: any) {
-    console.log(event.value);
+    this.isPlayClicked = false;
   }
 
   public onResetClick() {
-    this.selectedFirstPlayerStrategy = null;
+    this.selectedFirstPlayerStrategy = "-1";
     this.isPlayClicked = false;
   }
 
   public onPlayClick() {
+    const secondPlayerStrategy = Math.floor(Math.random() * 3)
+    console.log(secondPlayerStrategy)
+    this.firstPlayerWin = this.data[parseInt(this.selectedFirstPlayerStrategy)][secondPlayerStrategy].toString();
+    this.secondPlayerStrategy = this.secondPlayerStrategies[secondPlayerStrategy]
     this.isPlayClicked = true;
+
   }
+
+  public maxMin(): void{
+    let maxMin = new MaxMin(this.data);
+    let result = maxMin.optimize();
+    let strategies = result.maxMinRows.map((index) => this.firstPlayerStrategies[index]);
+    alert(`Оптимальні стратегії за максиміном: ${strategies} з найменшим виграшем ${result.maxMinValue}`);
+  } 	
 }

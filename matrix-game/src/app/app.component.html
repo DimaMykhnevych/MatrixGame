@@ -42,15 +42,14 @@
       <div class="row">
         <h2>Обрати стратегію першого гравця</h2>
         <mat-form-field>
-          <mat-label>Select an option</mat-label>
           <mat-select
             [(value)]="selectedFirstPlayerStrategy"
             (selectionChange)="onFirstPlayerOptionChanged($event)"
           >
-            <mat-option>None</mat-option>
-            <mat-option value="12000">12000</mat-option>
-            <mat-option value="15000">15000</mat-option>
-            <mat-option value="18000">18000</mat-option>
+            <mat-option value="-1">None</mat-option>
+            <mat-option value="0">12000</mat-option>
+            <mat-option value="1">15000</mat-option>
+            <mat-option value="2">18000</mat-option>
           </mat-select>
         </mat-form-field>
       </div>
@@ -68,7 +67,10 @@
 
       <div class="row m-3" *ngIf="isPlayClicked">
         <p>Стратегія другого гравця: {{ secondPlayerStrategy }}</p>
-        <p>Ваш вигриш: {{ firstPlayerWin }}</p>
+        <p>Ваш виграш: {{ firstPlayerWin }}</p>
+        <button color="primary" mat-raised-button (click)="maxMin()">
+          Оптимальна стратегія
+        </button>
       </div>
     </div>
     <div class="col-lg-3"></div>

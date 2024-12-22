@@ -12,6 +12,12 @@ export class AppComponent implements OnInit {
 
   public selectedFirstPlayerStrategy: string | null = null;
 
+  public isPlayClicked = false;
+
+  public secondPlayerStrategy: string = '(1, 1)';
+
+  public firstPlayerWin: string = '-10';
+
   constructor() {}
 
   ngOnInit(): void {
@@ -24,5 +30,14 @@ export class AppComponent implements OnInit {
 
   public onFirstPlayerOptionChanged(event: any) {
     console.log(event.value);
+  }
+
+  public onResetClick() {
+    this.selectedFirstPlayerStrategy = null;
+    this.isPlayClicked = false;
+  }
+
+  public onPlayClick() {
+    this.isPlayClicked = true;
   }
 }

@@ -1,6 +1,39 @@
 <app-navbar></app-navbar>
-<div class="container">
-  <div class="pageContiner">
-    <app-table [data]="data"></app-table>
+<div class="container-fluid">
+  <div class="row p-3 m-3">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-6">
+      <mat-card appearance="outlined">
+        <mat-card-header>
+          <mat-card-title>Умови гри</mat-card-title>
+        </mat-card-header>
+        <mat-card-content
+          ><p>
+            У зв’язку з наближенням зими виникає проблема створення вугільних
+            запасів для житлового селища. Якщо зима має бути м’якою, то виникає
+            потреба в 12000 тоннах вугілля, якщо нормальною – 15000, а у випадку
+            суворої зими – 18000. Залежно від того, яка буде зима – м’яка чи
+            сувора – вартість тонни вугілля складає відповідно 10, 12, 14
+            умовних грошових одиниць. В нинішній час вугілля можна придбати за
+            10 одиниць за тонну. Необхідно створити найбільш відповідний запас
+            вугілля для зими.
+          </p></mat-card-content
+        >
+      </mat-card>
+    </div>
+    <div class="col-lg-3"></div>
+  </div>
+  <div class="row">
+    <div class="col-lg-2">
+      <img class="woods" src="assets/images/woods.png" alt="woods" />
+    </div>
+    <div class="col-lg-8">
+      <div class="pageContiner">
+        <app-table [data]="data"></app-table>
+      </div>
+    </div>
+    <div class="col-lg-2">
+      <img class="snowman" src="assets/images/snowman.png" alt="snowman" />
+    </div>
   </div>
 </div>

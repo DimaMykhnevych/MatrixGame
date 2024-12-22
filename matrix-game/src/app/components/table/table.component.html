@@ -3,7 +3,15 @@
     <ng-container matColumnDef=" ">
       <mat-header-cell *matHeaderCellDef> </mat-header-cell>
       <mat-cell *matCellDef="let row; let rIndex = index">
-        {{ rIndex + 1 }}
+        {{
+          rIndex === 0
+            ? 12000
+            : rIndex === 1
+            ? 15000
+            : rIndex === 2
+            ? 18000
+            : rIndex + 1
+        }}
       </mat-cell>
     </ng-container>
     <ng-container
@@ -15,7 +23,15 @@
     >
       <mat-header-cell *matHeaderCellDef>
         <a class="header-value">
-          {{ cindex === displayedColumns.length - 2 ? "Amount" : header }}
+          {{
+            cindex === displayedColumns.length - 2
+              ? "Сувора"
+              : cindex === 0
+              ? "М'яка"
+              : cindex === 1
+              ? "Нормальна"
+              : header
+          }}
         </a>
       </mat-header-cell>
       <!-- when switch function is called then the value of editpointer and trucker will change accordingly
